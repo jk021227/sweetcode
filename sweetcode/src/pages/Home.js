@@ -1,29 +1,15 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const Home = (props) => {
-  const { loggedIn, email } = props
-  const navigate = useNavigate()
-
-  const onButtonClick = () => {
-    // You'll update this function later
-  }
-
+function Home() {
   return (
-    <div className="mainContainer">
-      <div className={'titleContainer'}>
-        <div>Welcome!</div>
-      </div>
-      <div>This is the home page.</div>
-      <div className={'buttonContainer'}>
-        <input
-          className={'inputButton'}
-          type="button"
-          onClick={onButtonClick}
-          value={loggedIn ? 'Log out' : 'Log in'}
-        />
-        {loggedIn ? <div>Your email address is {email}</div> : <div />}
-      </div>
+    <div className="font-mono">
+      <header className="mx-auto my-6 w-100 text-center">
+        <h1>welcome to sweetcode!</h1>
+      </header>
+      <main>
+        <img src="/img/island.PNG" alt="island" className="w-full h-auto" />
+      </main>
     </div>
   )
 }
