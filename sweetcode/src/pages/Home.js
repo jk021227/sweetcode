@@ -1,28 +1,14 @@
 import React, { useEffect, useState } from 'react'
 
 function Home() {
-  const [members, setMembers] = useState([])
-  useEffect(() => {
-    // Fetch the members from the Flask backend
-    fetch('/members') // Ensure this URL points to your Flask backend
-      .then((response) => response.json())
-      .then((data) => setMembers(data.members))
-      .catch((error) => console.error('Error fetching members:', error))
-  }, [])
   return (
-    <div className="bg-slate-500 font-mono">
-      <header>
-        <p className="">
-          Hello there! This is a simple React app that fetches data from a Flask
-          backend.
-        </p>
+    <div className="font-mono">
+      <header className="mx-auto my-6 w-100 text-center">
+        <h1>welcome to sweetcode!</h1>
       </header>
-      <h3>Here is the list of our members</h3>
-      {/* <ul>
-        {members.map((member, index) => (
-          <li key={index}>{member}</li>
-        ))}
-      </ul> */}
+      <main>
+        <img src="/img/island.PNG" alt="island" className="w-full h-auto" />
+      </main>
     </div>
   )
 }
