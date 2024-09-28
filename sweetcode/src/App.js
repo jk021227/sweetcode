@@ -1,20 +1,12 @@
 // import React from 'react';  // Add this line
-import React, { useEffect, useState } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import CreateProfile from './createprofile';
+import React, { useEffect, useState } from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
+import Home from './pages/Home' // your Home component
+import About from './pages/About' // your About component
+import Login from './pages/Login' // your Login component
+import NotFound from './pages/NotFound' // your NotFound component for 404
 
 function App() {
-  const [members, setMembers] = useState([]);
-
-  useEffect(() => {
-    // Fetch the members from the Flask backend
-    fetch('/members') // Ensure this URL points to your Flask backend
-      .then(response => response.json())
-      .then(data => setMembers(data.members))
-      .catch(error => console.error('Error fetching members:', error));
-  }, []);
-
   return (
     <div className="App">
       <header className="App-header">
@@ -29,9 +21,8 @@ function App() {
           <li key={index}>{member}</li>
         ))}
       </ul>
-      <CreateProfile/>
     </div>
   );
 }
 
-export default App;
+export default App
