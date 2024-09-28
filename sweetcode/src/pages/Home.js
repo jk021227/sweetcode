@@ -6,12 +6,7 @@ import TownImage from '../components/TownImage.js';
 function Home() {
   const [areaText, setAreaText] = useState('Choose a town to start!')
   const [towns, setTowns] = useState([])
-  const navigate = useNavigate();
 
-  const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear token
-    navigate('/landing'); // Redirect to login page
-  };
 
   // Fetching the towns from the JSON file
   useEffect(() => {
