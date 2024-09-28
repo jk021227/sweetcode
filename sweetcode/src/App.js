@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CreateProfile from './createprofile';
 
 function App() {
   const [members, setMembers] = useState([]);
@@ -28,6 +29,7 @@ function App() {
           <li key={index}>{member}</li>
         ))}
       </ul>
+      <CreateProfile/>
     </div>
   );
 }
