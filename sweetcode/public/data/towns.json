@@ -1,0 +1,52 @@
+[
+  {
+    "imgUrl": "/img/islands/1.PNG",
+    "color": "red",
+    "townName": "Tree Town",
+    "top": "340",
+    "left": "23",
+    "route": "/treetown"
+  },
+  {
+    "imgUrl": "/img/islands/2.PNG",
+    "color": "blue",
+    "townName": "Graph Grove",
+    "top": "203",
+    "left": "260"
+  },
+  {
+    "imgUrl": "/img/islands/3.PNG",
+    "color": "green",
+    "townName": "Recursion Ridge",
+    "top": "384",
+    "left": "330"
+  },
+  {
+    "imgUrl": "/img/islands/5.PNG",
+    "color": "purple",
+    "townName": "Sorting Savanna",
+    "top": "370",
+    "left": "726"
+  },
+  {
+    "imgUrl": "/img/islands/4.PNG",
+    "color": "yellow",
+    "townName": "Recursion Ridge",
+    "top": "200",
+    "left": "534"
+  },
+  {
+    "imgUrl": "/img/islands/6.PNG",
+    "color": "orange",
+    "townName": "Pathfinding Prairie",
+    "top": "245",
+    "left": "796"
+  },
+  {
+    "imgUrl": "/img/islands/7.PNG",
+    "color": "pink",
+    "townName": "Interview Isle",
+    "top": "346",
+    "left": "1150"
+  }
+]

@@ -2,6 +2,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
 import About from './pages/About'
+import TreeTown from './towns/TreeTown'
 import NotFound from './pages/NotFound'
 import CreateProfile from './pages/CreateProfile'
 import Landing from './pages/Landing'
@@ -29,6 +30,8 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/createprofile" element={<CreateProfile />} />
         <Route path="*" element={<NotFound />} />
+        {/* Routes to Towns Below */}
+        <Route path="/treetown" element={<TreeTown />} />
       </Routes>
     </Router>
   );
