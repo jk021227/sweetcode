@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "name": "Binary Trees",
+    "description": {
+      "keyProperties": [
+        "Each node has at most two children (left and right).",
+        "The left child is always smaller than the parent node, and the right child is always larger.",
+        "It can be empty, with just one node, or grow to be very large!"
+      ],
+      "yassifiedExample": "In Tree Town, every squirrel only has two kids, and each kid only has two kids. Maybe they’re super organized or just like keeping their tree neat and tidy. Even like this, after five generations, you could end up with 64 little squirrels running around! Talk about a bustling family tree!"
+    }
+  },
+  {
+    "id": 2,
+    "name": "AVL Trees",
+    "description": {
+      "keyProperties": [
+        "It’s a self-balancing binary search tree.",
+        "For every node, the height difference between the left and right subtrees is at most one.",
+        "When a new scroll is added, the tree will perform rotations to stay balanced."
+      ],
+      "yassifiedExample": "Imagine the wise owl doing yoga! An AVL tree is like that, making sure every branch is perfectly balanced. If one side starts to lean too much, the owl swoops in and does a little twist to even things out. Balance is key in keeping Tree Town peaceful!"
+    }
+  },
+  {
+    "id": 3,
+    "name": "Red-Black Trees",
+    "description": {
+      "keyProperties": [
+        "Each node is colored either red or black.",
+        "The root and leaves (NIL) are always black.",
+        "No red node can have red children (no two reds in a row)."
+      ],
+      "yassifiedExample": "In Tree Town, the villagers decided to have a color party! Each tree node gets to wear either a snazzy red or a classy black outfit. But to keep things stylish, no two red nodes can hang out together. It’s all about keeping the party balanced while having fun!"
+    }
+  },
+  {
+    "id": 4,
+    "name": "Searching & Traversals",
+    "description": {
+      "keyProperties": [
+        "Traversal is how you visit all nodes in a tree.",
+        "There are different methods: in-order, pre-order, and post-order.",
+        "Each method gives a different view of the tree’s scrolls."
+      ],
+      "yassifiedExample": "Think of it like a treasure hunt in Timberland Forest! In-order is like finding scrolls in alphabetical order, while pre-order is like marking the map before you dig. Post-order? That’s when you check the whole area before you leave! Every search method brings a unique treasure-finding strategy!"
+    }
+  },
+  {
+    "id": 5,
+    "name": "Tree Operations",
+    "description": {
+      "keyProperties": [
+        "Insertion adds a new node to the tree.",
+        "Deletion removes a node and reorganizes the tree.",
+        "Both operations need to maintain the tree's properties."
+      ],
+      "yassifiedExample": "In Tree Town, the villagers are always planting new saplings or sometimes removing old branches. When a new scroll comes in, they need to make space by carefully placing it in the right spot. And if a scroll goes missing? They’ll prune the tree to make sure it stays in tip-top shape!"
+    }
+  },
+  {
+    "id": 6,
+    "name": "Applications of Trees",
+    "description": {
+      "keyProperties": [
+        "Used in databases for quick data retrieval.",
+        "Help structure files in computer systems.",
+        "Play a crucial role in algorithms and searching."
+      ],
+      "yassifiedExample": "Imagine the villagers using trees to keep their library organized! Every scroll has its place, making it easy to find what they need in no time. Just like a library, trees help organize everything from storybooks to magical recipes, ensuring the villagers can find the right scroll in a flash!"
+    }
+  }
+]
