@@ -7,7 +7,7 @@ import os
 
 load_dotenv() # loading environment variables from .env file
 app = Flask(__name__) # creating a Flask app
-CORS(app)  # This will enable CORS for all routes
+CORS(app, resources={r"/members": {"origins": "http://localhost:3000"}})  # This will enable CORS for all routes
 
 
 app.api_key = os.getenv('API_KEY')
