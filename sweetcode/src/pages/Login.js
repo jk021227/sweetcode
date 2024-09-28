@@ -1,66 +1,72 @@
 import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-const CreateProfile = () => {
-  const [username, setUsername] = useState('')
+const Login = (props) => {
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [message, setMessage] = useState('')
-  const [error, setError] = useState('')
+  const [emailError, setEmailError] = useState('')
+  const [passwordError, setPasswordError] = useState('')
 
-  const handleSubmit = async (e) => {
-    e.preventDefault() // prevent the default form submission
+  const navigate = useNavigate()
 
-    try {
-      const response = await fetch('http://localhost:5001/createprofile', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ username, password }),
-      })
-
-      const data = await response.json()
-
-      if (response.ok) {
-        setMessage(data.message) // Profile created successfully
-        setError('') // Clear any previous error messages
-      } else {
-        setError(data.error) // Display error message
-        setMessage('') // Clear any previous success messages
-      }
-    } catch (err) {
-      setError('An error occurred while creating the profile.') // Handle fetch error
-      setMessage('') // Clear any previous success messages
+  const onButtonClick = () => {
+    // Set initial error values to empty
+    setEmailError('')
+    setPasswordError('')
+  
+    // Check if the user has entered both fields correctly
+    if ('' === email) {
+      setEmailError('Please enter your email')
+      return
     }
+  
+    if (!/^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/.test(email)) {
+      setEmailError('Please enter a valid email')
+      return
+    }
+  
+    if ('' === password) {
+      setPasswordError('Please enter a password')
+      return
+    }
+  
+    if (password.length < 7) {
+      setPasswordError('The password must be 8 characters or longer')
+      return
+    }
+  
+    // Authentication calls will be made here...
   }
 
   return (
-    <div className="create-profile">
-      <h2>Create Profile</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="username">Username:</label>
-          <input
-            type="text"
-            id="username"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-            required
-          />
-        </div>
-        <div>
-          <label htmlFor="password">Password:</label>
-          <input
-            type="password"
-            id="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-          />
-        </div>
-        <button type="submit">Create Profile</button>
-      </form>
-      {message && <p className="success-message">{message}</p>}
-      {error && <p className="error-message">{error}</p>}
+    <div className={'mainContainer'}>
+      <div className={'titleContainer'}>
+        <div>Login</div>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={email}
+          placeholder="Enter your email here"
+          onChange={(ev) => setEmail(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{emailError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input
+          value={password}
+          placeholder="Enter your password here"
+          onChange={(ev) => setPassword(ev.target.value)}
+          className={'inputBox'}
+        />
+        <label className="errorLabel">{passwordError}</label>
+      </div>
+      <br />
+      <div className={'inputContainer'}>
+        <input className={'inputButton'} type="button" onClick={onButtonClick} value={'Log in'} />
+      </div>
     </div>
   )
 }
