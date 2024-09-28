@@ -10,17 +10,14 @@ function App() {
   const [email, setEmail] = useState('')
 
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          <Route
-            path="/"
-            element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
-          />
-          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
   )
 }
 
