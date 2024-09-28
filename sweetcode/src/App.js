@@ -1,28 +1,27 @@
-// import React from 'react';  // Add this line
-import React, { useEffect, useState } from 'react'
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Home from './pages/Home' // your Home component
-import About from './pages/About' // your About component
-import Login from './pages/Login' // your Login component
-import NotFound from './pages/NotFound' // your NotFound component for 404
+import { Route, Routes } from 'react-router-dom'
+import Home from './pages/Home'
+import Login from './pages/Login'
+import './App.css'
+import React from 'react'
+import { useEffect, useState } from 'react'
 
 function App() {
+  const [loggedIn, setLoggedIn] = useState(false)
+  const [email, setEmail] = useState('')
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Hello Sweetcoders...Happy Hacking! <span>😊</span></code>
-        </p>
-      </header>
-      <h3>Here is the list of our members</h3>
-      <ul>
-        {members.map((member, index) => (
-          <li key={index}>{member}</li>
-        ))}
-      </ul>
+      <BrowserRouter>
+        <Routes>
+          <Route
+            path="/"
+            element={<Home email={email} loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
+          />
+          <Route path="/login" element={<Login setLoggedIn={setLoggedIn} setEmail={setEmail} />} />
+        </Routes>
+      </BrowserRouter>
     </div>
-  );
+  )
 }
 
 export default App

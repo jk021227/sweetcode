@@ -1,28 +1,29 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function Home() {
-  const [members, setMembers] = useState([])
-  useEffect(() => {
-    // Fetch the members from the Flask backend
-    fetch('/members') // Ensure this URL points to your Flask backend
-      .then((response) => response.json())
-      .then((data) => setMembers(data.members))
-      .catch((error) => console.error('Error fetching members:', error))
-  }, [])
+const Home = (props) => {
+  const { loggedIn, email } = props
+  const navigate = useNavigate()
+
+  const onButtonClick = () => {
+    // You'll update this function later
+  }
+
   return (
-    <div className="bg-slate-500 font-mono">
-      <header>
-        <p className="">
-          Hello there! This is a simple React app that fetches data from a Flask
-          backend.
-        </p>
-      </header>
-      <h3>Here is the list of our members</h3>
-      {/* <ul>
-        {members.map((member, index) => (
-          <li key={index}>{member}</li>
-        ))}
-      </ul> */}
+    <div className="mainContainer">
+      <div className={'titleContainer'}>
+        <div>Welcome!</div>
+      </div>
+      <div>This is the home page.</div>
+      <div className={'buttonContainer'}>
+        <input
+          className={'inputButton'}
+          type="button"
+          onClick={onButtonClick}
+          value={loggedIn ? 'Log out' : 'Log in'}
+        />
+        {loggedIn ? <div>Your email address is {email}</div> : <div />}
+      </div>
     </div>
   )
 }
