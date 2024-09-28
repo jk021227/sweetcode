@@ -8,21 +8,15 @@ import NotFound from './pages/NotFound' // your NotFound component for 404
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          <code>Hello Sweetcoders...Happy Hacking! <span>😊</span></code>
-        </p>
-      </header>
-      <h3>Here is the list of our members</h3>
-      <ul>
-        {members.map((member, index) => (
-          <li key={index}>{member}</li>
-        ))}
-      </ul>
-    </div>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Router>
+  )
 }
 
 export default App
