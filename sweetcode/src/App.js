@@ -1,13 +1,13 @@
-import { Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
 import Login from './pages/Login'
+import About from './pages/About'
+import NotFound from './pages/NotFound'
 import './App.css'
 import React from 'react'
 import { useEffect, useState } from 'react'
 
 function App() {
-  const [loggedIn, setLoggedIn] = useState(false)
-  const [email, setEmail] = useState('')
 
   return (
     <Router>
