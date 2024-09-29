@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react'
-
 import Nav from '../components/Nav.js'
 
 const InterviewIsle = () => {
@@ -117,7 +116,10 @@ const InterviewIsle = () => {
   console.log(logImg)
 
   return (
-    <div
+    <div>
+    <Nav titleText="Interview Isle" />
+    <br />
+      <div
       className="bg-cover overflow-hidden"
       style={{
         backgroundImage: bgImgSrc,
@@ -224,6 +226,8 @@ const InterviewIsle = () => {
         )}
       </div>
     </div>
+    </div>
+
   )
 }
 
