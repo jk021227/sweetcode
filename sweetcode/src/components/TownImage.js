@@ -28,7 +28,7 @@ function TownImage({
         <img
           src={imgUrl}
           alt={townName}
-          className="w-[480px] transition-transform duration-300 group-hover:-translate-y-5"
+          className="w-[480px] transition-transform duration-300 group-hover:-translate-y-5 z-50"
         />
       </Link>
     </div>

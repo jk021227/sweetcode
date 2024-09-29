@@ -1,7 +1,7 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from 'react'
+import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import TownImage from '../components/TownImage.js';
+import TownImage from '../components/TownImage.js'
 
 function Home() {
   const [areaText, setAreaText] = useState('Choose a town to start!')
@@ -38,6 +38,11 @@ function Home() {
       </div>
       <div>
         <div className="w-full overflow-hidden">
+          <img
+            src="/img/islands/river.PNG"
+            alt=""
+            className="absolute top-[254px] left-[549px] w-[330px] z-0"
+          />
           {towns.map((town, index) => (
             <TownImage
               key={index} // You can use a unique identifier if available
@@ -50,16 +55,10 @@ function Home() {
               setAreaText={setAreaText}
             />
           ))}
-          <img
-            src="/img/islands/river.PNG"
-            alt=""
-            className="absolute top-[256px] left-[514px] w-[409px] -z-50"
-          />
         </div>
-
       </div>
     </div>
-  );
+  )
 }
 
 export default Home;

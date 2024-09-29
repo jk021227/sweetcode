@@ -10,7 +10,7 @@ const Logout = () => {
     // If using cookies, you can clear the cookie here
 
     // Redirect to login page
-    navigate('/login');
+    navigate('/landing');
   }, [navigate]);
 
   return null; // No UI needed for logout
