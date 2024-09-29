@@ -1,22 +1,21 @@
 import React from 'react'
 
 function HintBit({ hint, onToggleHint, showHint, townNumber }) {
-  const imgsrc = '/img/' + townNumber + '.PNG'
+  const imgsrc = '/img/characters/' + townNumber + '.PNG'
+  console.log("BOOS", imgsrc)
 
   return (
-    <div className="p-4 absolute bottom-4 flex gap-4">
-      <button onClick={onToggleHint} className="w-[250px]">
+    <div className="p-2 absolute bottom-4 flex gap-4 align-bottom h-[250px]">
+      <button onClick={onToggleHint} className="w-[200px]">
         <img
           src={imgsrc}
           alt=""
           className="w-full transition-transform transform hover:-translate-y-3"
         />
       </button>
-      <div className="m-1 mt-5 p-4 bg-white text-sm rounded-xl w-[355px]">
+      <div className="p-4 bg-white text-sm rounded-xl w-[355px]">
         <p>
-          Hi! I'm Remy the Raccoon. Welcome to Tree Town! <br></br>Our villagers
-          always love some help, and I see you want some practice!. Lucky for
-          you, I know these trees pretty well. If you ever need help, click me
+          Hi! Our villagers always love some help, and I see you want some practice! If you ever need help, click me
           for a hint!
         </p>
         {/* Display the hint if showHint is true */}

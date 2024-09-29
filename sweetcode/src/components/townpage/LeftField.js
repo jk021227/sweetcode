@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Module from './Module'
 
-function LeftField(townNumber) {
+function LeftField({townNumber}) {
   const [selectedModule, setSelectedModule] = useState(null) // State to manage the selected module for modal
   const [modules, setModules] = useState([]) // State to hold the modules
   const [isModalOpen, setIsModalOpen] = useState(false) // State to manage modal visibility
@@ -29,6 +29,10 @@ function LeftField(townNumber) {
     setIsModalOpen(false) // Close the modal
     setSelectedModule(null) // Reset selected module
   }
+
+  console.log("HEE", townNumber)
+
+  console.log("HEE", townNumber)
 
   return (
     <div className="main h-[688px] font-mono p-6 overflow-y-auto bg-green-50 border-2 border-black">
