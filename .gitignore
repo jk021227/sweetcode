@@ -1,0 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+./sweetcode/node_modules
+./sweetcode/.pnp
+./sweetcode/.pnp.js
+
+# testing
+./sweetcode/coverage
+
+# production
+./sweetcode/build
+
+# misc
+.DS_Store
+# Ignore all .env files in the root and sweetcode directories
+.env
+./sweetcode/.env.local
+./sweetcode/.env.development.local
+./sweetcode/.env.test.local
+./sweetcode/.env.production.local
+
+# Ignore npm and yarn debug logs
+./sweetcode/npm-debug.log*
+./sweetcode/yarn-debug.log*
+./sweetcode/yarn-error.log*  # Fixed typo here

@@ -17,16 +17,16 @@ function Home() {
     fetchTowns()
   }, [])
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const handleLogout = () => {
-    localStorage.removeItem('token') // Clear token
-    navigate('/landing') // Redirect to login page
-  }
+    localStorage.removeItem('token'); // Clear token
+    navigate('/landing'); // Redirect to login page
+  };
 
   return (
-    <div className="font-mono bg-[url('https://www.toptal.com/designers/subtlepatterns/uploads/just-waves.png')] bg-repeat h-screen w-screen">
-      <div className="mx-auto pt-10 w-100 text-center">
+    <div className="font-mono">
+      <div className="mx-auto mt-10 w-100 text-center">
         <p className="mb-6">Welcome to Sweetcode!</p>
         <h1 className="areaText text-3xl">{areaText}</h1>
         <button
@@ -61,4 +61,4 @@ function Home() {
   )
 }
 
-export default Home
+export default Home;
