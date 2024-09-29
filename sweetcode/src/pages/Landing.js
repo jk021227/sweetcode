@@ -1,8 +1,10 @@
-import React from 'react'
-// import { useNavigate } from 'react-router-dom'
-// import { Modal, Button, Form } from 'react-bootstrap';
+import React, { useState } from 'react';
+import Login from './Login';
 
 function Landing() {
+  const [isLoginOpen, setIsLoginOpen] = useState(true); // Automatically open login
+
+  const closeLogin = () => setIsLoginOpen(false);
 
   return (
     <div className="font-mono">
@@ -12,9 +14,10 @@ function Landing() {
       <main>
         <img src="/img/island.PNG" alt="island" className="w-full h-auto" />
       </main>
-      {/* <Loginbox/> */}
+      {/* Login Modal */}
+      <Login isOpen={isLoginOpen} onClose={closeLogin} />
     </div>
-  )
+  );
 }
 
-export default Landing
+export default Landing;

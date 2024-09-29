@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const CreateProfile = () => {
-  const [nickname, setName] = useState('');
+const CreateProfile = ({ isOpen, onClose }) => {
+  const [nickname, setNickname] = useState('');
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
@@ -13,7 +13,6 @@ const CreateProfile = () => {
     e.preventDefault();
     
     try {
-      // send the profile data to the backend
       const response = await fetch('/createprofile', {
         method: 'POST',
         headers: {
@@ -21,47 +20,45 @@ const CreateProfile = () => {
         },
         body: JSON.stringify({ nickname, username, password }),
       });
-  
-      // Handle response status
+
       if (response.status === 200) {
-        // Profile created successfully
         const responseData = await response.json();
-        localStorage.setItem('token', responseData.token); // Save token to local storage
-        navigate('/'); // Redirect to the dashboard
+        localStorage.setItem('token', responseData.token);
+        navigate('/');
       } else if (response.status === 409) {
-        // Conflict error (Username already exists)
         const errorData = await response.json();
         setErrorMessage(errorData.error || 'User already exists.');
       } else {
-        // Handle other errors
         const errorData = await response.json();
         setErrorMessage(errorData.error || 'Failed to create profile.');
       }
     } catch (error) {
-      // Network or other unexpected error
       setErrorMessage('Something went wrong. Please try again later.');
     }
-  };  
+  };
+
+  if (!isOpen) return null; // Don't render if modal is not open
 
   return (
-      <div className="container">
-        <div className="title">Create Profile</div>
+    <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md">
+        <h2 className="text-2xl font-semibold">Create Profile</h2>
 
         {errorMessage && <div className="alert alert-danger">{errorMessage}</div>}
 
         <form onSubmit={handleSubmit}>
           <input
             type="text"
-            className="input"
-            name="name"
+            className="input border p-2 w-full my-2"
+            name="nickname"
             placeholder="Nickname"
             value={nickname}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) => setNickname(e.target.value)}
             required
           />
           <input
             type="text"
-            className="input"
+            className="input border p-2 w-full my-2"
             name="username"
             placeholder="Username"
             value={username}
@@ -70,25 +67,28 @@ const CreateProfile = () => {
           />
           <input
             type="password"
-            className="input"
+            className="input border p-2 w-full my-2"
             name="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button
-            className="button2"
-            type="button"
-            onClick={() => navigate('/')} // Navigate back to home or desired route
-          >
-            Back
-          </button>
-          <button className="button2" type="submit">
-            Save
-          </button>
+          <div className="flex justify-between mt-4">
+            <button
+              className="bg-red-500 text-white px-4 py-2 rounded"
+              onClick={onClose}  // Close modal
+              type="button"
+            >
+              Cancel
+            </button>
+            <button className="bg-blue-500 text-white px-4 py-2 rounded" type="submit">
+              Save
+            </button>
+          </div>
         </form>
       </div>
+    </div>
   );
 };
 
