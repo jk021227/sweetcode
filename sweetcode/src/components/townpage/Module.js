@@ -1,7 +1,8 @@
 import React from 'react'
 
-function Module({ moduleName, moduleID, onClick }) {
+function Module({ moduleName, moduleID, onClick, townNumber }) {
   const hueNum = moduleID * 60
+  const imgSrc = '/img/sprite/' + townNumber + '.PNG'
   const imageStyle = {
     filter: `hue-rotate(${hueNum}deg)`,
   }
@@ -11,7 +12,7 @@ function Module({ moduleName, moduleID, onClick }) {
       className="px-4 py-1 hover:bg-yellow-100 cursor-pointer rounded-md"
     >
       <img
-        src="/img/1-tree/tree.PNG"
+        src={imgSrc}
         alt=""
         style={imageStyle} // Apply the random hue rotation here
       />
