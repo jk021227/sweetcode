@@ -13,12 +13,14 @@
 
 # misc
 .DS_Store
-./server/.env
+# Ignore all .env files in the root and sweetcode directories
+.env
 ./sweetcode/.env.local
 ./sweetcode/.env.development.local
 ./sweetcode/.env.test.local
 ./sweetcode/.env.production.local
 
+# Ignore npm and yarn debug logs
 ./sweetcode/npm-debug.log*
 ./sweetcode/yarn-debug.log*
-./sweetcodeyarn-error.log*
+./sweetcode/yarn-error.log*  # Fixed typo here
