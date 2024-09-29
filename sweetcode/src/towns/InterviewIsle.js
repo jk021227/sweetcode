@@ -7,6 +7,22 @@ const InterviewIsle = () => {
   const [tutorResponse, setTutorResponse] = useState(''); // State for tutor response
   const [isCorrect, setIsCorrect] = useState(false); // State for correctness
   const [questions, setQuestions] = useState([]);
+  const [log, setLog] = useState([]); // State for storing log history
+  const [showLog, setShowLog] = useState(false); // Toggle for showing/hiding the log
+
+  // Fetch random question logic moved to a reusable function
+  const fetchRandomQuestion = (data) => {
+    const categories = Object.keys(data);
+    const randomCategoryIndex = Math.floor(Math.random() * categories.length);
+    const randomCategory = categories[randomCategoryIndex];
+    const questionsInCategory = data[randomCategory];
+    const randomQuestionIndex = Math.floor(Math.random() * questionsInCategory.length);
+
+    // Set the question and tag
+    const selectedQuestion = questionsInCategory[randomQuestionIndex];
+    setQuestion(selectedQuestion.yassifiedExample); // Set the question
+    setTag(randomCategory); // Set the tag based on the category
+  };
 
   useEffect(() => {
     const fetchQuestions = async () => {
@@ -15,18 +31,7 @@ const InterviewIsle = () => {
         if (!res.ok) throw new Error('Failed to fetch questions.');
         const data = await res.json();
         setQuestions(data);
-
-        // Randomly select a category and then a question from that category
-        const categories = Object.keys(data);
-        const randomCategoryIndex = Math.floor(Math.random() * categories.length);
-        const randomCategory = categories[randomCategoryIndex];
-        const questionsInCategory = data[randomCategory];
-        const randomQuestionIndex = Math.floor(Math.random() * questionsInCategory.length);
-        
-        // Set the question and tag
-        const selectedQuestion = questionsInCategory[randomQuestionIndex];
-        setQuestion(selectedQuestion.yassifiedExample); // Set the question
-        setTag(randomCategory); // Set the tag based on the category
+        fetchRandomQuestion(data); // Fetch the initial random question
       } catch (error) {
         console.error('Error fetching questions:', error);
       }
@@ -54,6 +59,26 @@ const InterviewIsle = () => {
         const data = await res.json();
         setTutorResponse(data.response); // Set the tutor response
         setIsCorrect(data.correct); // Set correctness
+
+        // Check if the question is already logged
+        const questionLogged = log.some(entry => entry.question === question);
+
+        // Add the current interaction to the log
+        if (!questionLogged) {
+          setLog((prevLog) => [
+            ...prevLog,
+            { question, userInput, tutorResponse: data.response, correct: data.correct },
+          ]);
+        } else {
+          // If the question is already logged, just add the user input and tutor response
+          setLog((prevLog) => [
+            ...prevLog,
+            { userInput, tutorResponse: data.response, correct: data.correct },
+          ]);
+        }
+
+        // Clear user input after submitting
+        setUserInput('');
       } else {
         setTutorResponse('Error: Could not fetch response from server.');
         setIsCorrect(false);
@@ -65,8 +90,21 @@ const InterviewIsle = () => {
     }
   };
 
+  // Handle fetching a new random question
+  const handleNextQuestion = () => {
+    fetchRandomQuestion(questions);
+    setUserInput(''); // Reset the user's input
+    setTutorResponse(''); // Clear the tutor response
+    setIsCorrect(false); // Reset correctness
+  };
+
+  // Toggle log visibility
+  const toggleLog = () => {
+    setShowLog(!showLog);
+  };
+
   return (
-    <div className="p-4">
+    <div className="p-4 relative my-8 mx-auto w-[600px] rounded border-2 border-black"> {/* Added relative positioning for log */}
       <h1 className="text-2xl font-bold">Interview Isle</h1>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="mb-4">
@@ -102,7 +140,7 @@ const InterviewIsle = () => {
           Submit
         </button>
       </form>
-      
+
       {/* Tutor Response Box */}
       <div className="mt-4">
         <label className="block text-sm font-medium text-gray-700" htmlFor="TutorResponse">
@@ -118,6 +156,48 @@ const InterviewIsle = () => {
           {isCorrect ? "Your answer was correct!" : "Keep trying!"}
         </p>
       </div>
+
+      {/* Conditionally render the "Next" button if the answer is correct */}
+      {isCorrect && (
+        <button
+          onClick={handleNextQuestion}
+          className="mt-4 bg-green-500 text-white p-2 rounded-md"
+        >
+          Next Question
+        </button>
+      )}
+
+      {/* Log Button */}
+      <button
+        onClick={toggleLog}
+        className="fixed bottom-4 right-4 bg-gray-700 text-white p-2 rounded-md"
+      >
+        Log
+      </button>
+
+      {/* Log Container */}
+      {showLog && (
+        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white w-3/4 max-h-[600px] p-4 rounded-md overflow-y-auto"> {/* Adjust max height to match the interview box */}
+            <h2 className="text-xl font-bold mb-4">Interaction Log</h2>
+            {log.map((entry, index) => (
+              <div key={index} className={`mb-4 ${entry.question ? 'mb-4' : 'mb-0'}`}> {/* Adjust margin based on presence of question */}
+                {entry.question && <p><strong>Question:</strong> {entry.question}</p>} {/* Conditionally render question */}
+                <p><strong>Your Answer:</strong> {entry.userInput}</p>
+                <p><strong>Tutor Response:</strong> {entry.tutorResponse}</p>
+                <p className="text-sm text-gray-500">{entry.correct ? 'Correct!' : 'Incorrect'}</p>
+              </div>
+            ))}
+            <button
+              onClick={toggleLog}
+              className="mt-4 bg-gray-500 text-white p-2 rounded-md"
+            >
+              Close Log
+            </button>
+          </div>
+        </div>
+      )}
+
     </div>
   );
 };

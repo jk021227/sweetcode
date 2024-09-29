@@ -21,6 +21,7 @@ print("\nthis is db string ", app.db_string)
 
 def initialize_database():
     try: 
+        print("getting to db")
         client = MongoClient(app.db_string)
         db = client.sweetcode 
         users_collection = db.get_collection("users")
@@ -133,6 +134,8 @@ def interview():
     # Assuming response is a JSON string containing "response" and "correct"
     response_content = response.choices[0].message.content
     response_text = json.loads(response_content)
+    print("This is the feedback:", response_text['response'])  # Access 'feedback' key
+    print("Is the answer correct?", response_text['correct'])
     return response_text  # Return the parsed JSON directly
 
 if __name__ == "__main__":
