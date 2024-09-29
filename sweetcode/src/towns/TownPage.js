@@ -24,4 +24,4 @@ function TownPage(townNumber) {
   )
 }
 
-export default TreeTown
+export default TownPage
