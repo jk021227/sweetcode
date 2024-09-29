@@ -2,7 +2,9 @@ import React from 'react'
 
 function Module({ moduleName, moduleID, onClick, townNumber }) {
   const hueNum = moduleID * 60
-  const imgSrc = '/img/sprite/' + townNumber + '.PNG'
+  const imgSrc = '/img/sprites/' + townNumber + '.PNG'
+
+  // const imgSrc = '/img/sprite/' + townNumber + '.PNG'
   const imageStyle = {
     filter: `hue-rotate(${hueNum}deg)`,
   }
