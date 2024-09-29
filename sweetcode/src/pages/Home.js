@@ -2,6 +2,7 @@ import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import TownImage from '../components/TownImage.js'
+import Nav from '../components/Nav.js'
 
 function Home() {
   const [areaText, setAreaText] = useState('Choose a town to start!')
@@ -17,24 +18,22 @@ function Home() {
     fetchTowns()
   }, [])
 
-  const navigate = useNavigate();
+  const navigate = useNavigate()
 
   const handleLogout = () => {
-    localStorage.removeItem('token'); // Clear token
-    navigate('/landing'); // Redirect to login page
-  };
+    localStorage.removeItem('token') // Clear token
+    navigate('/landing') // Redirect to login page
+  }
 
   return (
     <div className="font-mono">
+      <Nav titleText="SWEETCODE"></Nav>
       <div className="mx-auto mt-10 w-100 text-center">
         <p className="mb-6">Welcome to Sweetcode!</p>
         <h1 className="areaText text-3xl">{areaText}</h1>
-        <button
-          onClick={handleLogout}
-          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto"
-        >
-          Logout
-        </button>
+        {/* <button onClick={handleLogout} className="focus:outline-none">
+          Logout →
+        </button> */}
       </div>
       <div>
         <div className="w-full overflow-hidden">
@@ -61,4 +60,4 @@ function Home() {
   )
 }
 
-export default Home;
+export default Home
