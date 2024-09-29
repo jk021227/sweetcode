@@ -54,9 +54,16 @@ function RightField({townNumber}) {
     setShowHint((prev) => !prev) // Toggle the hint visibility
   }
 
+  const bgImgSrc = 'url(/img/bgs/' + townNumber + '.PNG)'
+  console.log(bgImgSrc)
 
   return (
-    <div className="h-[688px] ml-2 border-black border-2 bg-cover bg-green-800">
+
+    <div className="ml-2 border-black border-2 bg-cover overflow-hidden" style={{
+      backgroundImage: bgImgSrc,
+      height: '90vh', // adjust as needed
+      backgroundSize: 'cover',
+    }}>
       <QuestionBank
         questions={questions}
         currentQuestionIndex={currentQuestionIndex}

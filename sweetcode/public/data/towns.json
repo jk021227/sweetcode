@@ -14,7 +14,8 @@
     "color": "blue",
     "townName": "Graph Grove",
     "top": "203",
-    "left": "260"
+    "left": "260",
+    "route": "/graphgrove"
   },
   {
     "id": 3,
@@ -22,7 +23,8 @@
     "color": "green",
     "townName": "Array Archipelago",
     "top": "384",
-    "left": "330"
+    "left": "330",
+    "route": "/arrayarchipelago"
   },
   {
     "id": 4,
@@ -30,7 +32,8 @@
     "color": "purple",
     "townName": "Sorting Savanna",
     "top": "370",
-    "left": "726"
+    "left": "726",
+    "route": "/sortingsavanna"
   },
   {
     "id": 5,
@@ -38,7 +41,8 @@
     "color": "yellow",
     "townName": "Recursion Ridge",
     "top": "200",
-    "left": "534"
+    "left": "534",
+    "route": "/recursionridge"
   },
   {
     "id": 6,
@@ -46,7 +50,8 @@
     "color": "orange",
     "townName": "Pathfinding Prairie",
     "top": "245",
-    "left": "796"
+    "left": "796",
+    "route": "/pathfindingprairie"
   },
   {
     "id": 7,

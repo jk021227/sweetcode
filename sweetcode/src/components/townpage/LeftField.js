@@ -30,12 +30,8 @@ function LeftField({townNumber}) {
     setSelectedModule(null) // Reset selected module
   }
 
-  console.log("HEE", townNumber)
-
-  console.log("HEE", townNumber)
-
   return (
-    <div className="main h-[688px] font-mono p-6 overflow-y-auto bg-green-50 border-2 border-black">
+    <div className="main h-[90vh] font-mono p-6 overflow-y-auto bg-white border-2 border-black">
       <div className="text-sm font-bold mt-4 text-center mx-auto border-black">
         <h2>KNOWLEDGE BANK</h2>
       </div>

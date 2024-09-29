@@ -5,7 +5,7 @@ function HintBit({ hint, onToggleHint, showHint, townNumber }) {
   console.log("BOOS", imgsrc)
 
   return (
-    <div className="p-2 absolute bottom-4 flex gap-4 align-bottom h-[250px]">
+    <div className="p-4 absolute bottom-20 flex gap-4 align-bottom h-[250px]">
       <button onClick={onToggleHint} className="w-[200px]">
         <img
           src={imgsrc}
