@@ -4,7 +4,7 @@ import Nav from '../components/Nav'
 import LeftField from '../components/townpage/LeftField'
 import RightField from '../components/townpage/RightField'
 
-function TownPage(townNumber) {
+function TownPage({townNumber}) {
   return (
     <div className="">
       <Nav titleText="Tree Town" />

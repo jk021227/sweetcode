@@ -3,7 +3,7 @@ import Question from './Question' // Import the Question component
 import HintBit from './HintBit'
 import QuestionBank from './QuestionBank' // Import the QuestionBank component
 
-function RightField(townNumber) {
+function RightField({townNumber}) {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [randomVillagerName, setRandomVillagerName] = useState('') // State to hold the random villager name
@@ -54,8 +54,9 @@ function RightField(townNumber) {
     setShowHint((prev) => !prev) // Toggle the hint visibility
   }
 
+
   return (
-    <div className="h-[688px] ml-2 border-black border-2 bg-green-800">
+    <div className="h-[688px] ml-2 border-black border-2 bg-cover bg-green-800">
       <QuestionBank
         questions={questions}
         currentQuestionIndex={currentQuestionIndex}

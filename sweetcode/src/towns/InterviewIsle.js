@@ -104,7 +104,7 @@ const InterviewIsle = () => {
   };
 
   return (
-    <div className="p-4 relative my-8 mx-auto w-[600px] rounded border-2 border-black"> {/* Added relative positioning for log */}
+    <div className="p-4 relative my-8 mx-auto w-[600px] rounded border-2 border-black bg-white"> {/* Added relative positioning for log */}
       <h1 className="text-2xl font-bold">Interview Isle</h1>
       <form onSubmit={handleSubmit} className="mt-4">
         <div className="mb-4">
@@ -132,13 +132,14 @@ const InterviewIsle = () => {
             className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24"
             required
           />
-        </div>
-        <button
+          <button
           type="submit"
           className="mt-4 bg-blue-500 text-white p-2 rounded-md"
         >
           Submit
         </button>
+        </div>
+
       </form>
 
       {/* Tutor Response Box */}
