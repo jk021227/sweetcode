@@ -102,103 +102,118 @@ const InterviewIsle = () => {
   const toggleLog = () => {
     setShowLog(!showLog);
   };
+  const bgImgSrc = 'url(/img/wave.webp)'
+  const logImg = 'url(/img/log.PNG)'
+  console.log(bgImgSrc)
+  console.log(logImg)
 
   return (
-    <div className="p-4 relative my-8 mx-auto w-[600px] rounded border-2 border-black bg-white"> {/* Added relative positioning for log */}
-      <h1 className="text-2xl font-bold">Interview Isle</h1>
-      <form onSubmit={handleSubmit} className="mt-4">
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700 flex items-center">
-            Question
-            {tag && (
-              <span className="ml-2 px-2 py-1 text-sm text-white bg-blue-500 rounded-full">
-                {tag}
-              </span>
-            )}
-          </label>
-          {/* Display the question as bold text */}
-          <p className="mt-1 p-2 font-bold">
-            {question}
-          </p>
-        </div>
-        <div className="mb-4">
-          <label className="block text-sm font-medium text-gray-700" htmlFor="userInput">
-            Your Answer
-          </label>
-          <textarea
-            id="userInput"
-            value={userInput}
-            onChange={handleInputChange}
-            className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24"
-            required
-          />
-          <button
-          type="submit"
-          className="mt-4 bg-blue-500 text-white p-2 rounded-md"
-        >
-          Submit
-        </button>
-        </div>
-
-      </form>
-
-      {/* Tutor Response Box */}
-      <div className="mt-4">
-        <label className="block text-sm font-medium text-gray-700" htmlFor="TutorResponse">
-          Tutor Response
-        </label>
-        <textarea
-          id="TutorResponse"
-          value={tutorResponse}
-          readOnly // Make the response textarea read-only
-          className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24 bg-gray-100"
-        />
-        <p className="mt-2 text-sm text-gray-500">
-          {isCorrect ? "Your answer was correct!" : "Keep trying!"}
-        </p>
-      </div>
-
-      {/* Conditionally render the "Next" button if the answer is correct */}
-      {isCorrect && (
-        <button
-          onClick={handleNextQuestion}
-          className="mt-4 bg-green-500 text-white p-2 rounded-md"
-        >
-          Next Question
-        </button>
-      )}
-
-      {/* Log Button */}
-      <button
-        onClick={toggleLog}
-        className="fixed bottom-4 right-4 bg-gray-700 text-white p-2 rounded-md"
-      >
-        Log
-      </button>
-
-      {/* Log Container */}
-      {showLog && (
-        <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-3/4 max-h-[600px] p-4 rounded-md overflow-y-auto"> {/* Adjust max height to match the interview box */}
-            <h2 className="text-xl font-bold mb-4">Interaction Log</h2>
-            {log.map((entry, index) => (
-              <div key={index} className={`mb-4 ${entry.question ? 'mb-4' : 'mb-0'}`}> {/* Adjust margin based on presence of question */}
-                {entry.question && <p><strong>Question:</strong> {entry.question}</p>} {/* Conditionally render question */}
-                <p><strong>Your Answer:</strong> {entry.userInput}</p>
-                <p><strong>Tutor Response:</strong> {entry.tutorResponse}</p>
-                <p className="text-sm text-gray-500">{entry.correct ? 'Correct!' : 'Incorrect'}</p>
-              </div>
-            ))}
+    <div
+      className="bg-cover overflow-hidden"
+      style={{
+        backgroundImage: bgImgSrc,
+        height: '100vh', // adjust as needed
+        backgroundSize: 'auto', // This allows the background to tile
+        backgroundRepeat: 'repeat', // Ensures the background tiles
+        backgroundPosition: 'top left', // Optional: Adjust position if needed
+      }}
+    >
+      <div className="p-4 relative my-8 mx-auto w-[600px] rounded border-2 border-black bg-white"> {/* Inner content div */}
+        <h1 className="text-2xl font-bold">Interview Isle</h1>
+        <form onSubmit={handleSubmit} className="mt-4">
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700 flex items-center">
+              Question
+              {tag && (
+                <span className="ml-2 px-2 py-1 text-sm text-white bg-blue-500 rounded-full">
+                  {tag}
+                </span>
+              )}
+            </label>
+            {/* Display the question as bold text */}
+            <p className="mt-1 p-2 font-bold">
+              {question}
+            </p>
+          </div>
+          <div className="mb-4">
+            <label className="block text-sm font-medium text-gray-700" htmlFor="userInput">
+              Your Answer
+            </label>
+            <textarea
+              id="userInput"
+              value={userInput}
+              onChange={handleInputChange}
+              className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24"
+              required
+            />
             <button
-              onClick={toggleLog}
-              className="mt-4 bg-gray-500 text-white p-2 rounded-md"
+              type="submit"
+              className="mt-4 bg-blue-500 text-white p-2 rounded-md"
             >
-              Close Log
+              Submit
             </button>
           </div>
-        </div>
-      )}
+        </form>
 
+        {/* Tutor Response Box */}
+        <div className="mt-4">
+          <label className="block text-sm font-medium text-gray-700" htmlFor="TutorResponse">
+            Tutor Response
+          </label>
+          <textarea
+            id="TutorResponse"
+            value={tutorResponse}
+            readOnly // Make the response textarea read-only
+            className="mt-1 p-2 border border-gray-300 rounded-md w-full h-24 bg-gray-100"
+          />
+          <p className="mt-2 text-sm text-gray-500">
+            {isCorrect ? "Your answer was correct!" : "Keep trying!"}
+          </p>
+        </div>
+
+        {/* Conditionally render the "Next" button if the answer is correct */}
+        {isCorrect && (
+          <button
+            onClick={handleNextQuestion}
+            className="mt-4 bg-green-500 text-white p-2 rounded-md"
+          >
+            Next Question
+          </button>
+        )}
+
+        {/* Log Button */}
+        <button
+          onClick={toggleLog}
+          className="fixed bottom-4 right-4 background-white text-black p-2 rounded-md items-center justify-center transition-transform duration-200 hover:translate-y-[-20px]"
+        >
+          <img src="img/log.PNG" alt="Log" className="w-20 h-20 m-2" />
+          User Log
+        </button>
+
+
+        {/* Log Container */}
+        {showLog && (
+          <div className="fixed inset-0 bg-opacity-50 flex justify-center items-center z-50">
+            <div className="bg-white border-2 border-black w-1/2 max-h-[600px] p-4 rounded-md overflow-y-auto"> {/* Adjust max height to match the interview box */}
+              <h2 className="text-xl font-bold mb-4">Interaction Log</h2>
+              {log.map((entry, index) => (
+                <div key={index} className={`mb-4 ${entry.question ? 'mb-4' : 'mb-0'}`}> {/* Adjust margin based on presence of question */}
+                  {entry.question && <p><strong>Question:</strong> {entry.question}</p>} {/* Conditionally render question */}
+                  <p><strong>Your Answer:</strong> {entry.userInput}</p>
+                  <p><strong>Tutor Response:</strong> {entry.tutorResponse}</p>
+                  <p className="text-sm text-gray-500">{entry.correct ? 'Correct!' : 'Incorrect'}</p>
+                </div>
+              ))}
+              <button
+                onClick={toggleLog}
+                className="mt-4 bg-gray-500 text-white p-2 rounded-md"
+              >
+                Close Log
+              </button>
+            </div>
+          </div>
+        )}
+      </div>
     </div>
   );
 };
