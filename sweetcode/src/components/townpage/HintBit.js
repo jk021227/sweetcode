@@ -10,7 +10,7 @@ function HintBit({ hint, onToggleHint, showHint }) {
           className="w-full transition-transform transform hover:-translate-y-3"
         />
       </button>
-      <div className="m-1 p-4 h-1/2 bg-white text-sm rounded-xl w-[355px]">
+      <div className="m-1 mt-5 p-4 bg-white text-sm rounded-xl w-[355px]">
         <p>
           Hi! I'm Remy the Raccoon. Welcome to Tree Town! <br></br>Our villagers
           always love some help, and I see you want some practice!. Lucky for
