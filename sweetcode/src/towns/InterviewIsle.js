@@ -1,51 +1,55 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
+
+import Nav from '../components/Nav.js'
 
 const InterviewIsle = () => {
-  const [question, setQuestion] = useState('');
-  const [tag, setTag] = useState('');
-  const [userInput, setUserInput] = useState('');
-  const [tutorResponse, setTutorResponse] = useState(''); // State for tutor response
-  const [isCorrect, setIsCorrect] = useState(false); // State for correctness
-  const [questions, setQuestions] = useState([]);
-  const [log, setLog] = useState([]); // State for storing log history
-  const [showLog, setShowLog] = useState(false); // Toggle for showing/hiding the log
+  const [question, setQuestion] = useState('')
+  const [tag, setTag] = useState('')
+  const [userInput, setUserInput] = useState('')
+  const [tutorResponse, setTutorResponse] = useState('') // State for tutor response
+  const [isCorrect, setIsCorrect] = useState(false) // State for correctness
+  const [questions, setQuestions] = useState([])
+  const [log, setLog] = useState([]) // State for storing log history
+  const [showLog, setShowLog] = useState(false) // Toggle for showing/hiding the log
 
   // Fetch random question logic moved to a reusable function
   const fetchRandomQuestion = (data) => {
-    const categories = Object.keys(data);
-    const randomCategoryIndex = Math.floor(Math.random() * categories.length);
-    const randomCategory = categories[randomCategoryIndex];
-    const questionsInCategory = data[randomCategory];
-    const randomQuestionIndex = Math.floor(Math.random() * questionsInCategory.length);
+    const categories = Object.keys(data)
+    const randomCategoryIndex = Math.floor(Math.random() * categories.length)
+    const randomCategory = categories[randomCategoryIndex]
+    const questionsInCategory = data[randomCategory]
+    const randomQuestionIndex = Math.floor(
+      Math.random() * questionsInCategory.length
+    )
 
     // Set the question and tag
-    const selectedQuestion = questionsInCategory[randomQuestionIndex];
-    setQuestion(selectedQuestion.yassifiedExample); // Set the question
-    setTag(randomCategory); // Set the tag based on the category
-  };
+    const selectedQuestion = questionsInCategory[randomQuestionIndex]
+    setQuestion(selectedQuestion.yassifiedExample) // Set the question
+    setTag(randomCategory) // Set the tag based on the category
+  }
 
   useEffect(() => {
     const fetchQuestions = async () => {
       try {
-        const res = await fetch('/data/questions.json'); // Adjust the path as needed
-        if (!res.ok) throw new Error('Failed to fetch questions.');
-        const data = await res.json();
-        setQuestions(data);
-        fetchRandomQuestion(data); // Fetch the initial random question
+        const res = await fetch('/data/questions.json') // Adjust the path as needed
+        if (!res.ok) throw new Error('Failed to fetch questions.')
+        const data = await res.json()
+        setQuestions(data)
+        fetchRandomQuestion(data) // Fetch the initial random question
       } catch (error) {
-        console.error('Error fetching questions:', error);
+        console.error('Error fetching questions:', error)
       }
-    };
+    }
 
-    fetchQuestions();
-  }, []); // Run once on component mount
+    fetchQuestions()
+  }, []) // Run once on component mount
 
   const handleInputChange = (e) => {
-    setUserInput(e.target.value);
-  };
+    setUserInput(e.target.value)
+  }
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
+    e.preventDefault()
     try {
       const res = await fetch('/interview', {
         method: 'POST',
@@ -53,50 +57,55 @@ const InterviewIsle = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ question, user_input: userInput }), // Pass question and user input
-      });
+      })
 
       if (res.ok) {
-        const data = await res.json();
-        setTutorResponse(data.response); // Set the tutor response
-        setIsCorrect(data.correct); // Set correctness
+        const data = await res.json()
+        setTutorResponse(data.response) // Set the tutor response
+        setIsCorrect(data.correct) // Set correctness
 
         // Check if the question is already logged
-        const questionLogged = log.some(entry => entry.question === question);
+        const questionLogged = log.some((entry) => entry.question === question)
 
         // Add the current interaction to the log
         if (!questionLogged) {
           setLog((prevLog) => [
             ...prevLog,
-            { question, userInput, tutorResponse: data.response, correct: data.correct },
-          ]);
+            {
+              question,
+              userInput,
+              tutorResponse: data.response,
+              correct: data.correct,
+            },
+          ])
         } else {
           // If the question is already logged, just add the user input and tutor response
           setLog((prevLog) => [
             ...prevLog,
             { userInput, tutorResponse: data.response, correct: data.correct },
-          ]);
+          ])
         }
 
         // Clear user input after submitting
-        setUserInput('');
+        setUserInput('')
       } else {
-        setTutorResponse('Error: Could not fetch response from server.');
-        setIsCorrect(false);
+        setTutorResponse('Error: Could not fetch response from server.')
+        setIsCorrect(false)
       }
     } catch (error) {
-      console.error('Error:', error);
-      setTutorResponse('Error: Something went wrong.');
-      setIsCorrect(false);
+      console.error('Error:', error)
+      setTutorResponse('Error: Something went wrong.')
+      setIsCorrect(false)
     }
-  };
+  }
 
   // Handle fetching a new random question
   const handleNextQuestion = () => {
-    fetchRandomQuestion(questions);
-    setUserInput(''); // Reset the user's input
-    setTutorResponse(''); // Clear the tutor response
-    setIsCorrect(false); // Reset correctness
-  };
+    fetchRandomQuestion(questions)
+    setUserInput('') // Reset the user's input
+    setTutorResponse('') // Clear the tutor response
+    setIsCorrect(false) // Reset correctness
+  }
 
   // Toggle log visibility
   const toggleLog = () => {
@@ -215,7 +224,7 @@ const InterviewIsle = () => {
         )}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default InterviewIsle;
+export default InterviewIsle

@@ -1,13 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Nav from '../components/Nav'
+import { useState, useEffect } from 'react'
+import Nav from '../components/Nav.js'
 import LeftField from '../components/townpage/LeftField'
 import RightField from '../components/townpage/RightField'
 
-function TownPage({townNumber}) {
+function TownPage({ townNumber, townName }) {
+  const [towns, setTowns] = useState([])
+
   return (
     <div className="">
-      <Nav titleText="Tree Town" />
+      <Nav titleText={townName} />
       <div className="p-4 flex">
         {/* Add padding for some spacing */}
         <div className="flex w-full">
