@@ -1,0 +1,169 @@
+{
+  "townQuestions": [
+    {
+      "questionId": 1,
+      "question": "The wise owl has scattered scrolls across Timberland Forest, but they need to be properly stored. Help the owl organize the scrolls in a Binary Search Tree by inserting the following scrolls in order: 50, 30, 70, 20, 40, 60, 80. Which scroll is in the last node?",
+      "options": ["20", "40", "60", "80"],
+      "correctAnswer": "80",
+      "hint": "Think about how the tree branches out with each scroll being placed according to its value."
+    },
+    {
+      "questionId": 2,
+      "question": "In Tree Town, every squirrel can have two kids. If a squirrel has 3 children, what type of tree would it be?",
+      "options": [
+        "Binary Tree",
+        "Binary Search Tree",
+        "Full Tree",
+        "N-ary Tree"
+      ],
+      "correctAnswer": "N-ary Tree",
+      "hint": "Remember, a binary tree can only have at most two children!"
+    },
+    {
+      "questionId": 3,
+      "question": "A frog wants to jump to the top of the AVL Tree. If the tree is balanced, how many levels can it skip at once?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": "1",
+      "hint": "An AVL Tree keeps things balanced, so each jump should be manageable!"
+    },
+    {
+      "questionId": 4,
+      "question": "The villagers in Tree Town need to find a scroll in a Binary Search Tree. They start at the root, which is 50. The scroll they seek is 30. What direction do they go?",
+      "options": ["Left", "Right", "Up", "Down"],
+      "correctAnswer": "Left",
+      "hint": "In a Binary Search Tree, smaller values go to the left."
+    },
+    {
+      "questionId": 5,
+      "question": "A butterfly is fluttering around a Red-Black Tree. If it lands on a red node, what color must its parent be?",
+      "options": ["Red", "Black", "Blue", "Green"],
+      "correctAnswer": "Black",
+      "hint": "Remember the rules of color in a Red-Black Tree!"
+    },
+    {
+      "questionId": 6,
+      "question": "When building a tree of scrolls, what operation do you perform to remove a scroll from a Binary Tree?",
+      "options": ["Insert", "Delete", "Balance", "Rotate"],
+      "correctAnswer": "Delete",
+      "hint": "Think about what you would do if you wanted to take a scroll away."
+    },
+    {
+      "questionId": 7,
+      "question": "In a B-tree, how do the villagers ensure that they can quickly find their scrolls?",
+      "options": [
+        "By using binary search",
+        "By keeping the tree balanced",
+        "By organizing by color",
+        "By singing songs"
+      ],
+      "correctAnswer": "By keeping the tree balanced",
+      "hint": "A well-balanced tree helps with fast retrieval!"
+    },
+    {
+      "questionId": 8,
+      "question": "What is the maximum number of children a node can have in a binary tree?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": "2",
+      "hint": "Remember, it's all about how many kids a squirrel can have!"
+    },
+    {
+      "questionId": 9,
+      "question": "A wise old tree in Timberland Forest has 5 levels. How many nodes can there be at the bottom level in a full binary tree?",
+      "options": ["5", "10", "16", "32"],
+      "correctAnswer": "16",
+      "hint": "The number of nodes at a level doubles with each level in a full binary tree."
+    },
+    {
+      "questionId": 10,
+      "question": "If the left subtree of a node in a binary tree has a height of 2 and the right subtree has a height of 1, what is the height of the tree?",
+      "options": ["1", "2", "3", "4"],
+      "correctAnswer": "3",
+      "hint": "The height of the tree is determined by the tallest path."
+    },
+    {
+      "questionId": 11,
+      "question": "In Tree Town, how do the villagers find the fastest way to a scroll in a complete binary tree?",
+      "options": [
+        "Breadth-First Search",
+        "Depth-First Search",
+        "Binary Search",
+        "Linear Search"
+      ],
+      "correctAnswer": "Breadth-First Search",
+      "hint": "Think about how you would explore all the branches before going deeper!"
+    },
+    {
+      "questionId": 12,
+      "question": "When a new scroll is added to an AVL tree, what might the wise owl do to keep it balanced?",
+      "options": ["Nothing", "Rotate", "Delete", "Search"],
+      "correctAnswer": "Rotate",
+      "hint": "To maintain balance, a twist might be necessary!"
+    },
+    {
+      "questionId": 13,
+      "question": "If a scroll contains a value that is less than the root of a Binary Search Tree, where should it be placed?",
+      "options": ["Left child", "Right child", "At the root", "Nowhere"],
+      "correctAnswer": "Left child",
+      "hint": "Recall the rule of left and right placement!"
+    },
+    {
+      "questionId": 14,
+      "question": "The wise owl is looking to store 15 unique scrolls. Which tree would be the best for searching these scrolls efficiently?",
+      "options": ["Linked List", "Binary Search Tree", "Array", "Stack"],
+      "correctAnswer": "Binary Search Tree",
+      "hint": "Think about which structure allows for quick searching!"
+    },
+    {
+      "questionId": 15,
+      "question": "If you have a tree with 100 nodes, how many edges will it have?",
+      "options": ["99", "100", "101", "200"],
+      "correctAnswer": "99",
+      "hint": "In any tree, the number of edges is always one less than the number of nodes."
+    },
+    {
+      "questionId": 16,
+      "question": "What is the purpose of performing tree traversals in Timberland Forest?",
+      "options": [
+        "To add new scrolls",
+        "To find and retrieve scrolls",
+        "To color the trees",
+        "To sing to the trees"
+      ],
+      "correctAnswer": "To find and retrieve scrolls",
+      "hint": "Traversal helps you explore all the paths in a tree!"
+    },
+    {
+      "questionId": 17,
+      "question": "A squirrel can hold berries in its branches. If it has 5 left branches and 5 right branches, how many total branches does it have?",
+      "options": ["5", "10", "15", "20"],
+      "correctAnswer": "10",
+      "hint": "Just add the branches together!"
+    },
+    {
+      "questionId": 18,
+      "question": "Which of the following is a benefit of using a Red-Black Tree?",
+      "options": [
+        "Easier to implement",
+        "Guaranteed balance",
+        "Faster insertion",
+        "No need for rotations"
+      ],
+      "correctAnswer": "Guaranteed balance",
+      "hint": "Balance is important for maintaining order in a tree!"
+    },
+    {
+      "questionId": 19,
+      "question": "If a tree has a height of 3, what is the maximum number of leaves it can have?",
+      "options": ["3", "4", "7", "8"],
+      "correctAnswer": "8",
+      "hint": "Leaves are the end points in a full binary tree!"
+    },
+    {
+      "questionId": 20,
+      "question": "The villagers need to search for a scroll that is deeper in the tree. What traversal method should they use?",
+      "options": ["In-order", "Pre-order", "Post-order", "Level-order"],
+      "correctAnswer": "Pre-order",
+      "hint": "Think about the order in which you would want to explore the tree!"
+    }
+  ]
+}

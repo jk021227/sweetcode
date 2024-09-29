@@ -31,8 +31,11 @@ function LeftField() {
   }
 
   return (
-    <div className="main h-full font-mono">
-      <div className="grid grid-cols-3 p-12 bg-green-50 gap-5 w-full">
+    <div className="main h-[688px] font-mono p-6 overflow-y-auto bg-green-50 border-2 border-black">
+      <div className="text-sm font-bold mt-4 text-center mx-auto border-black">
+        <h2>THE FOREST TELLS SECRETS...</h2>
+      </div>
+      <div className="grid grid-cols-3 gap-4 w-full my-10 px-4">
         {modules.map((module, index) => (
           <Module
             key={index}
@@ -45,18 +48,43 @@ function LeftField() {
 
       {/* Modal */}
       {isModalOpen && selectedModule && (
-        <div className="absolute top-0 left-0 w-[550px] h-{90%} bg-white border p-6 overflow-y-scroll z-50 m-20">
+        <div className="absolute top-0 left-0 w-[580px] h-[87%] bg-white border py-6 px-8 overflow-y-scroll z-50 m-20">
           <button
             onClick={closeModal}
-            className="mt-4 p-2 bg-green-500 text-white"
+            className="m-4 p-2 border absolute right-0 top-0"
           >
-            Back
+            X
           </button>
-          <h2 className="text-xl font-bold my-6">{selectedModule.name}</h2>
-          <p>{selectedModule.description.keyProperties}</p>
-          <br></br>
-          <p>{selectedModule.description.yassifiedExample}</p>
-
+          <h2 className="text-xl font-bold my-4 uppercase">
+            {selectedModule.name}
+          </h2>
+          <p>
+            <strong>Key Properties:</strong>{' '}
+            {selectedModule.description.keyProperties}
+          </p>
+          <br />
+          <p>
+            <strong>Example:</strong>{' '}
+            {selectedModule.description.yassifiedExample}
+          </p>
+          <br />
+          <p>
+            <strong>LeetCode Questions:</strong>
+          </p>
+          <ul>
+            {selectedModule.description.leetcodeQuestions.map(
+              (question, index) => (
+                <li key={index}>{question}</li>
+              )
+            )}
+          </ul>
+          <br />
+          <p>
+            <strong>Code Example:</strong>
+          </p>
+          <pre className="bg-gray-100 p-2 rounded">
+            <code>{selectedModule.description.codeExample}</code>
+          </pre>
           {/* You can add more detailed information from JSON here */}
         </div>
       )}
