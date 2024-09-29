@@ -16,6 +16,7 @@ bcrypt = Bcrypt(app)
 app.db_string = os.getenv('DB_STRING')
 app.secret_key = os.getenv('FLASK_SECRET_KEY')
 app.api_key = os.getenv('API_KEY')
+print("\nthis is api key ", app.api_key)
 
 print("\nthis is db string ", app.db_string)
 
