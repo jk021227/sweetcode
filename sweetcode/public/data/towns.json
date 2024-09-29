@@ -47,6 +47,7 @@
     "color": "pink",
     "townName": "Interview Isle",
     "top": "346",
-    "left": "1150"
+    "left": "1150",
+    "route": "/interview"
   }
 ]

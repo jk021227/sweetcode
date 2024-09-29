@@ -7,7 +7,6 @@ function Home() {
   const [areaText, setAreaText] = useState('Choose a town to start!')
   const [towns, setTowns] = useState([])
 
-
   // Fetching the towns from the JSON file
   useEffect(() => {
     const fetchTowns = async () => {
@@ -27,9 +26,15 @@ function Home() {
 
   return (
     <div className="font-mono">
-      <div className="mx-auto mt-20 w-100 text-center">
+      <div className="mx-auto mt-10 w-100 text-center">
         <p className="mb-6">Welcome to Sweetcode!</p>
         <h1 className="areaText text-3xl">{areaText}</h1>
+        <button
+          onClick={handleLogout}
+          className="mt-4 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline m-auto"
+        >
+          Logout
+        </button>
       </div>
       <div>
         <div className="w-full overflow-hidden">
@@ -51,8 +56,6 @@ function Home() {
             className="absolute top-[256px] left-[514px] w-[409px] -z-50"
           />
         </div>
-
-        <button onClick={handleLogout} className="mt-4">Logout</button> {/* Logout button */}
 
       </div>
     </div>

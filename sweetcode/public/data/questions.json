@@ -1,0 +1,83 @@
+{
+    "BinaryTrees": [
+        {
+            "id": 1,
+            "tag": "BinaryTree",
+            "yassifiedExample": "In Tree Town, if every squirrel has two children and each of those children also has two children, how many little squirrels will there be after five generations?"
+        },
+        {
+            "id": 2,
+            "tag": "BinaryTree",
+            "yassifiedExample": "Imagine a scenario in Tree Town where a new squirrel arrives and the tree must grow to accommodate this addition. If Tree Town expands to 8 branches, with each branch housing 2 families, how does the overall squirrel population increase?"
+        },
+        {
+            "id": 3,
+            "tag": "BinaryTree",
+            "yassifiedExample": "Consider a family reunion of squirrels in Tree Town. How does the binary tree structure help the squirrels organize themselves so that every squirrel knows exactly where to sit without overlapping, ensuring a harmonious gathering?"
+        },
+        {
+            "id": 4,
+            "tag": "BinaryTree",
+            "yassifiedExample": "In a fun situation in Tree Town, if one squirrel eats too many acorns and causes the tree to wobble, how do the other squirrels use their two-kid rule to maintain balance and stability among their branches?"
+        },
+        {
+            "id": 5,
+            "tag": "BinaryTree",
+            "yassifiedExample": "Write a pseudo code for a function that calculates the total number of squirrels in a binary tree given the depth of the tree."
+        }
+    ],
+    "AVL_Trees": [
+        {
+            "id": 1,
+            "tag": "AVLTree",
+            "yassifiedExample": "How does the wise owl in Tree Town monitor the height of each branch to ensure perfect balance? What methods does the owl use if it notices that one side of the tree leans too much?"
+        },
+        {
+            "id": 2,
+            "tag": "AVLTree",
+            "yassifiedExample": "When a new acorn is added to the tree, how does the owl assess whether the branches remain balanced? What steps does the owl take if it finds that balance is disrupted?"
+        },
+        {
+            "id": 3,
+            "tag": "AVLTree",
+            "yassifiedExample": "In Tree Town, if the left branch of the tree grows taller than the right branch, what strategies does the wise owl implement to ensure that sunlight reaches every branch evenly?"
+        },
+        {
+            "id": 4,
+            "tag": "AVLTree",
+            "yassifiedExample": "Write a pseudo code for a function that checks if a given tree is an AVL tree and describes how it maintains balance during insertions."
+        },
+        {
+            "id": 5,
+            "tag": "AVLTree",
+            "yassifiedExample": "Why do all the squirrels in Tree Town appreciate the AVL tree structure? How does this system give every squirrel an equal chance to enjoy the branches during playtime?"
+        }
+    ],
+    "RedBlack_Trees": [
+        {
+            "id": 1,
+            "tag": "RedBlackTree",
+            "yassifiedExample": "How does the annual color party in Tree Town decide which tree nodes wear red or black outfits? What significance do these colors hold in maintaining balance within the tree?"
+        },
+        {
+            "id": 2,
+            "tag": "RedBlackTree",
+            "yassifiedExample": "In Tree Town, why is there a strict rule against having two red nodes together? How does this unique regulation help keep the tree balanced and enhance the enjoyment of the villagers?"
+        },
+        {
+            "id": 3,
+            "tag": "RedBlackTree",
+            "yassifiedExample": "At the top of the tree, why does the wise old crow wear a black coat while overseeing the vibrant celebrations below? What does this represent in terms of leadership and structure?"
+        },
+        {
+            "id": 4,
+            "tag": "RedBlackTree",
+            "yassifiedExample": "Write a pseudo code for balancing a red-black tree after inserting a new node, and explain how color changes and rotations are utilized."
+        },
+        {
+            "id": 5,
+            "tag": "RedBlackTree",
+            "yassifiedExample": "Imagine the trees in Tree Town hosting fashion shows—how do the red nodes show off their outfits while the black nodes cheer from the sidelines, contributing to the community spirit?"
+        }
+    ]
+}
