@@ -1,0 +1,21 @@
+# frontend/Dockerfile
+FROM node:18-alpine
+
+# Set the working directory in the container
+WORKDIR /app
+
+# Copy the frontend code into the container
+COPY . .
+
+# Install dependencies
+RUN npm install --silent
+
+# Build the React app
+RUN npm run build
+
+# Expose the port for the frontend
+EXPOSE 3000
+
+# Serve the built frontend using a simple HTTP server
+RUN npm install -g serve
+CMD ["serve", "-s", "build", "-l", "3000"]

@@ -1,0 +1,43 @@
+version: '3'
+services:
+  frontend:
+    container_name: frontend
+    build: 
+      context: ./sweetcode
+      dockerfile: Dockerfile_frontend
+    ports:
+      - '3000:3000'
+    depends_on:
+      - backend 
+    networks:
+      - mynetwork
+
+  backend:
+    container_name: backend
+    build:
+      context: ./server
+      dockerfile: Dockerfile_backend
+    ports:
+      - '5001:5001'
+    environment:
+      - DB_STRING
+      - API_KEY
+      - FLASK_SECRET_KEY
+    depends_on:
+      - mongodb 
+    links:
+      - mongodb
+    networks:
+      - mynetwork
+
+  mongodb:
+    container_name: mongodb
+    image: mongo
+    ports:
+      - "27017:27017"  # Expose MongoDB port
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+    driver: bridge
