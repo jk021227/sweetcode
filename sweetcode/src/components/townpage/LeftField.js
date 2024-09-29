@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Module from './Module'
 
-function LeftField() {
+function LeftField(townNumber) {
   const [selectedModule, setSelectedModule] = useState(null) // State to manage the selected module for modal
   const [modules, setModules] = useState([]) // State to hold the modules
   const [isModalOpen, setIsModalOpen] = useState(false) // State to manage modal visibility
@@ -33,7 +33,7 @@ function LeftField() {
   return (
     <div className="main h-[688px] font-mono p-6 overflow-y-auto bg-green-50 border-2 border-black">
       <div className="text-sm font-bold mt-4 text-center mx-auto border-black">
-        <h2>THE FOREST TELLS SECRETS...</h2>
+        <h2>KNOWLEDGE BANK</h2>
       </div>
       <div className="grid grid-cols-3 gap-4 w-full my-10 px-4">
         {modules.map((module, index) => (
@@ -41,6 +41,7 @@ function LeftField() {
             key={index}
             moduleName={module.name}
             moduleID={module.id}
+            townNumber={townNumber}
             onClick={() => handleModuleClick(module)}
           />
         ))}

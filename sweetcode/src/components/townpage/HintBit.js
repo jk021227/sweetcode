@@ -1,11 +1,13 @@
 import React from 'react'
 
-function HintBit({ hint, onToggleHint, showHint }) {
+function HintBit({ hint, onToggleHint, showHint, townNumber }) {
+  const imgsrc = '/img/' + townNumber + '.PNG'
+
   return (
     <div className="p-4 absolute bottom-4 flex gap-4">
       <button onClick={onToggleHint} className="w-[250px]">
         <img
-          src="/img/1-tree/raccoon.PNG"
+          src={imgsrc}
           alt=""
           className="w-full transition-transform transform hover:-translate-y-3"
         />

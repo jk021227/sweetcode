@@ -3,7 +3,7 @@ import Question from './Question' // Import the Question component
 import HintBit from './HintBit'
 import QuestionBank from './QuestionBank' // Import the QuestionBank component
 
-function RightField() {
+function RightField(townNumber) {
   const [questions, setQuestions] = useState([])
   const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
   const [randomVillagerName, setRandomVillagerName] = useState('') // State to hold the random villager name
@@ -59,11 +59,13 @@ function RightField() {
       <QuestionBank
         questions={questions}
         currentQuestionIndex={currentQuestionIndex}
+        townNumber={townNumber}
         onNext={handleNextQuestion}
         randomVillagerName={randomVillagerName} // Pass the random villager name to QuestionBank
       />
       <HintBit
         hint={questions[currentQuestionIndex]?.hint}
+        townNumber={townNumber}
         onToggleHint={toggleHint}
         showHint={showHint}
       />
