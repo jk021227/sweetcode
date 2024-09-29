@@ -43,17 +43,29 @@ function App() {
           <Route path="/createprofile" element={<CreateProfile />} />
           <Route path="*" element={<NotFound />} />
           {/* Routes to Towns Below */}
-          <Route path="/treetown" element={<TownPage townNumber="1" />} />
-          <Route path="/graphgrove" element={<TownPage townNumber="2" />} />
+          <Route
+            path="/treetown"
+            element={<TownPage townNumber="1" townName="Tree Town" />}
+          />
+          <Route
+            path="/graphgrove"
+            element={<TownPage townNumber="2" townName="Graph Grove" />}
+          />
           <Route
             path="/arrayarchipelago"
-            element={<TownPage townNumber="3" />}
+            element={<TownPage townNumber="3" townName="Array Archipelago" />}
           />
-          <Route path="/recursionridge" element={<TownPage townNumber="4" />} />
-          <Route path="/sortingsavanna" element={<TownPage townNumber="5" />} />
+          <Route
+            path="/recursionridge"
+            element={<TownPage townNumber="4" townName="Recursion Ridge" />}
+          />
+          <Route
+            path="/sortingsavanna"
+            element={<TownPage townNumber="5" townName="Sorting Savanna" />}
+          />
           <Route
             path="/pathfindingprairie"
-            element={<TownPage townNumber="6" />}
+            element={<TownPage townNumber="6" townName="Pathfinding Prairie" />}
           />
 
           <Route path="/interview" element={<InterviewIsle />} />
